@@ -50,7 +50,7 @@ void _ZN19GlassRacingChnlMenu7timeOutEv(void* this) {
 		//GlassRacingChnlMenu::timeOut timeouts 1/s. Send the cmd every second for 15 seconds.	
 		if((link == GS_LINK_STAT_NORMAL) && !started_bb){
 			if((now_bb.tv_sec - start_bb.tv_sec) > 15)started_bb = true;
-			gs_gui_config_bb->gs_modem_set_bandwidth_mode(gs_gui_config_bb->gs_info, 6);
+			// gs_gui_config_bb->gs_modem_set_bandwidth_mode(gs_gui_config_bb->gs_info, 6);
 			printf("Launching 30/60Mbit mode...\n");
 		}
 		else if((link == GS_LINK_STAT_LOST) && started_bb){

@@ -10,9 +10,9 @@ all:
 	cp -r control tmp/
 	chmod +x tmp/control/postinst
 	chmod +x tmp/control/prerm
-	cd tmp/control && tar --owner=0 --group=0 -czvf ../control.tar.gz .
-	cd tmp/data && tar --owner=0 --group=0 -czvf ../data.tar.gz .
-	cd tmp/ && tar --owner=0 --group=0 -czvf "../${IPK_NAME}" ./control.tar.gz ./data.tar.gz ./debian-binary
+	cd tmp/control && gtar --owner=0 --group=0 -czvf ../control.tar.gz .
+	cd tmp/data && gtar --owner=0 --group=0 -czvf ../data.tar.gz .
+	cd tmp/ && gtar --owner=0 --group=0 -czvf "../${IPK_NAME}" ./control.tar.gz ./data.tar.gz ./debian-binary
 
 clean:
 	rm -rf tmp
