@@ -41,6 +41,9 @@ void _ZN19GlassRacingChnlMenu7timeOutEv(void* this) {
 		gs_link_stat_t link = GS_LINK_STAT_UKNOWN;
 		gs_gui_config_bb->gs_modem_get_link_state_wrap(gs_gui_config_bb->gs_info, &link);
 		
+		printf("\n\n\nLOOP\n\n\n");
+		
+
 		if(link != GS_LINK_STAT_NORMAL){
 			clock_gettime(CLOCK_MONOTONIC, &start_bb);
 		}
@@ -51,6 +54,9 @@ void _ZN19GlassRacingChnlMenu7timeOutEv(void* this) {
 		if((link == GS_LINK_STAT_NORMAL) && !started_bb){
 			if((now_bb.tv_sec - start_bb.tv_sec) > 15)started_bb = true;
 			// gs_gui_config_bb->gs_modem_set_bandwidth_mode(gs_gui_config_bb->gs_info, 6);
+			printf("\n\n\nHEREEEE\n\n\n");
+			// gs_gui_config_bb->gs_modem_set_chnl(gs_gui_config_bb->gs_info, 0); // 2653
+			// gs_gui_config_bb->gs_modem_set_public_chnl(gs_gui_config_bb->gs_info);
 			printf("Launching 30/60Mbit mode...\n");
 		}
 		else if((link == GS_LINK_STAT_LOST) && started_bb){
